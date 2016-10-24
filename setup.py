@@ -11,6 +11,9 @@ setup_params = dict(
     description='Upload Handler',
     install_requires=[
         'chilero'
+    ],
+    setup_requires=[
+        'setuptools_scm'
     ]
 )
 
