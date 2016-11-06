@@ -1,7 +1,7 @@
 import os
 from importlib import import_module
 
-import chilero
+import chilero.web
 
 ENDPOINT = os.getenv('ENDPOINT', 'files')
 Uploader = import_module(
