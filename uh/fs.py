@@ -29,7 +29,10 @@ class Uploader(BaseUploader):
 
     async def serve(self, filename):
         filepath = os.path.join(UPLOAD_PATH, filename)
-        with open(filepath, 'rb') as f:
-            return aiohttp.web.Response(
-                body=f.read()
-            )
+        try:
+            with open(filepath, 'rb') as f:
+                return aiohttp.web.Response(
+                    body=f.read()
+                )
+        except FileNotFoundError:
+            raise aiohttp.HTTPNotFound()
